@@ -1,5 +1,8 @@
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
+
+import javax.sound.midi.Soundbank;
 
 public class ProcessoSeletivo {
     static void caso1( double salarioPretendido){
@@ -55,14 +58,47 @@ public class ProcessoSeletivo {
         }
         System.out.println("Cenário 3: Finalizado.");
     }
+
+
+    static boolean atender(){
+        return new Random().nextInt(3)==1;
+    }
+
+    static void caso4(String candidato){
+        int tentativas=1;
+        boolean tentarNovamente=true;
+        boolean candidatoAtendeu= false;
+
+        do{
+           candidatoAtendeu= atender(); 
+           tentarNovamente=!candidatoAtendeu;
+           if(tentarNovamente){
+            tentativas++;
+           }
+           else{
+            System.out.println("O CANDIDATO FOI CONTATADO COM SUCESSO");
+           }
+        }while(tentarNovamente && tentativas<3);
+        
+        if(candidatoAtendeu){
+        System.out.println("CANDIDATO CONTATADO NA TENTAIVA "+ tentativas);
+        }
+        else{
+        System.out.println("O NÚMERO MÁXIMO DE TENTATIVAS FOI ATINGIDO E NÃO FOI POSSÍVEL CONTATAR O CANDIDATO");
+        }
+}
+
+        
     public static void main(String [] args){
         caso1(1000);
         caso1(2000);
         caso1(3000);
         caso2();
         caso3();
-
-
+        String[] candidatos = {"FELIPE", "JULIA", "AUGUSTO",  "FABRÍCIO", "DANIELA"};
+        for (int i = 0; i < candidatos.length; i++) {
+            caso4(candidatos[i]);
+        }
     }
 
 }

@@ -19,3 +19,4 @@ Terceira condição: AGUARDANDO RESULTADO DOS DEMAIS CANDIDATOS, caso não atend
 * Case 3: Informar apenas os candidatos selecionados.
 
 
+* Case 5: Deve haver no máximo três tentativas de contato com os candidatos selecionados
